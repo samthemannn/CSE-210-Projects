@@ -1,28 +1,31 @@
-class Person
+using System.Reflection.Metadata.Ecma335;
+
+abstract class Person
 {
-    private string _firstName; // Corrected casing to _firstName
-    private string _lastName;  // Corrected casing to _lastName
+    private string _lastName;
+    private string _firstName;
     private int _age;
 
-    // Default constructor
     public Person()
     {
-        _firstName = "";
         _lastName = "";
+        _firstName = "";
         _age = 0;
     }
 
-    // Parameterized constructor
-    public Person(string firstName, string lastName, int age) // Changed parameter names
+    public Person(string lastName, string firstName, int age)
     {
-        _firstName = firstName; // Assign parameter to field
-        _lastName = lastName;   // Assign parameter to field
-        _age = age;             // Assign parameter to field
+        _lastName = lastName;
+        _firstName = firstName;
+        _age = age;
     }
 
-    // Method to get basic person information
-    public virtual string GetPersonInformation() // Added 'virtual' to allow overriding
+    public virtual string GetPersonInformation()
     {
-        return $"Name: {_firstName} {_lastName}, Age: {_age}";
+        return $"{_firstName} {_lastName}, Age: {_age}";
     }
+
+    public abstract double Getpay();
+        
+
 }
